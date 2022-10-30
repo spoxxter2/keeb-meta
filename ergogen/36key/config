@@ -1,0 +1,104 @@
+# `U` is a predefined unit of measure that means 19.05mm, which is MX spacing
+points:
+  zones:
+    matrix:
+      columns:
+        pinky:
+        ring.stagger: 0.5U
+        middle.stagger: 0.25U
+        index.stagger: -0.25U
+        inner.stagger: -0.15U
+      rows:
+        bottom:
+          bind: 1
+          padding: U
+        home:
+          bind: 1
+          padding: U
+        top:
+          bind: 1
+          padding: U
+    thumb:
+      anchor:
+        ref: matrix_index_bottom
+        shift: [0.5U, -1.25U]
+        rotate: -10
+      rows:
+        home:
+          bind: [3,.5]
+      columns:
+        inner:
+          key.name: thumb_inner
+        mid:
+          spread: U
+          rotate: -15
+          origin: [-0.5U, -0.5U]
+          key.name: thumb_mid
+        out:
+          spread: U
+          rotate: -15
+          origin: [-0.5U, -0.5U]
+          key.name: thumb_out
+  key:
+    footprints:
+      - type: mx
+        nets:
+          from: GND
+          to: =name
+        params:
+          reverse: true
+          keycaps: true
+outlines:
+  exports:
+    _raw:
+      - type: keys
+        side: left
+        size: 18
+      - type: rectangle
+        size: [70, 20]
+        anchor:
+          ref: matrix_pinky_bottom
+          rotate: 0
+          shift: [-10, -10]
+      - type: rectangle
+        size: [53,60]
+        anchor:
+          ref: thumb_inner
+          rotate: 10
+          shift: [-12,-9]
+    _switch_cutouts:
+      - type: keys
+        side: left
+        size: 14.2 # Normally 14, but add buffer for 3D prints
+        bound: false
+    preview:
+      - type: outline
+        name: _raw
+    switch_plate:
+      [_raw,-_switch_cutouts]
+pcbs:
+  simple_split:
+    footprints:
+      - type: promicro
+        anchor:
+          - ref: matrix_inner_home
+            shift: [1U, 0.5U]
+            rotate: -90
+        nets:
+          P7: matrix_pinky_top
+          P18: matrix_ring_top
+          P19: matrix_middle_top
+          P20: matrix_index_top
+          P21: matrix_inner_top
+          P15: matrix_pinky_home
+          P14: matrix_ring_home
+          P16: matrix_middle_home
+          P10: matrix_index_home
+          P1: matrix_inner_home
+          P2: matrix_pinky_bottom
+          P3: matrix_ring_bottom
+          P4: matrix_middle_bottom
+          P5: matrix_index_bottom
+          P6: matrix_inner_bottom
+          P8: thumb_inner
+          P9: thumb_mid
