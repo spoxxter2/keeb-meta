@@ -5,7 +5,7 @@ points:
       columns:
         pinky:
         ring.stagger: 0.5U
-        middle.stagger: 0.25U
+        middle.stagger: 0.2U
         index.stagger: -0.25U
         inner.stagger: -0.15U
       rows:
@@ -21,22 +21,22 @@ points:
     thumb:
       anchor:
         ref: matrix_index_bottom
-        shift: [0.5U, -1.25U]
-        rotate: -10
+        shift: [0.U, -1.25U]
+        rotate: 0
       rows:
         home:
-          bind: [3,.5]
+          bind: [2,.5]
       columns:
         inner:
           key.name: thumb_inner
         mid:
           spread: U
-          rotate: -15
+          rotate: -20
           origin: [-0.5U, -0.5U]
           key.name: thumb_mid
         out:
           spread: U
-          rotate: -15
+          rotate: -20
           origin: [-0.5U, -0.5U]
           key.name: thumb_out
   key:
@@ -61,11 +61,11 @@ outlines:
           rotate: 0
           shift: [-10, -10]
       - type: rectangle
-        size: [53,60]
+        size: [45,60]
         anchor:
           ref: thumb_inner
-          rotate: 10
-          shift: [-12,-9]
+          rotate: 0
+          shift: [-5,-9]
     _switch_cutouts:
       - type: keys
         side: left
